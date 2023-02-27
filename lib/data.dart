@@ -18,7 +18,7 @@ final List<Product> allData = [
   Product(
     'Эрик Соси',
     '0',
-    'ничего не стоит',
+    'ничего н',
     'assets/img1.png',
     'Любит тяночек',
   ),
