@@ -1,4 +1,4 @@
-com.example.flutter_grocery_ui
+com.example.flutter_delikat_h_c
 attr activityAction
 attr activityName
 attr alpha

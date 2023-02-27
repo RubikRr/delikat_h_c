@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_grocery_ui/item_widget.dart';
+import 'package:flutter_delikat_h_c/item_widget.dart';
 
 import 'data.dart';
 

@@ -2,8 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-import 'package:flutter_grocery_ui/data.dart';
-import 'package:flutter_grocery_ui/product_detail.dart';
+import 'package:flutter_delikat_h_c/data.dart';
+import 'package:flutter_delikat_h_c/product_detail.dart';
 
 class ItemWidget extends StatelessWidget {
   const ItemWidget({
