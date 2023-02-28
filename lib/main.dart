@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_delikat_h_c/item_widget.dart';
 
+import 'product_class.dart';
 import 'data.dart';
 
 void main() {
@@ -32,11 +33,12 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   final data = Product(
-    'Bayam',
-    '2.000',
-    '1ikat',
-    'assets/img1.png',
-    'Secara umum sayuran dan buah-buahan merupakan sumber berbagai vitamin, mineral, dan serat pangan. Sebagian vitamin dan mineral yang terkandung dalam sayuran dan buah-buahan berperan untuk membantu proses-proses metabolisme di dalam tubuh, sedangkan antioksidan mampu menangkal senyawa-senyawa hasil oksidasi, radikal bebas, yang mampu menurunkan kondisi kesehatan tubuh',
+    name: 'Bayam',
+    price: '2.000',
+    quantity: '1ikat',
+    image: 'assets/img1.png',
+    description:
+        'Secara umum sayuran dan buah-buahan merupakan sumber berbagai vitamin, mineral, dan serat pangan. Sebagian vitamin dan mineral yang terkandung dalam sayuran dan buah-buahan berperan untuk membantu proses-proses metabolisme di dalam tubuh, sedangkan antioksidan mampu menangkal senyawa-senyawa hasil oksidasi, radikal bebas, yang mampu menurunkan kondisi kesehatan tubuh',
   );
 
   @override

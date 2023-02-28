@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_delikat_h_c/data.dart';
+import 'product_class.dart';
 
 class ProductDetail extends StatefulWidget {
   const ProductDetail({
