@@ -30,17 +30,18 @@ class ItemWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Hero(
-              tag: product.image,
+              tag: product.img,
               child: SizedBox(
                 width: 150,
-                child: Image.asset(product.image),
+                //child: Image.asset(product.img),
+                child: Image.asset('assets/img1.png'),
               ),
             ),
             const SizedBox(
               height: 6,
             ),
             Text(
-              'Rp ${product.price}',
+              'Rub ${product.price}',
               style: const TextStyle(
                 color: Colors.green,
                 fontSize: 20,
@@ -60,13 +61,13 @@ class ItemWidget extends StatelessWidget {
             const SizedBox(
               height: 2,
             ),
-            Text(
-              product.quantity,
-              style: const TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w300,
-              ),
-            ),
+            // Text(
+            //   product.quantity,
+            //   style: const TextStyle(
+            //     fontSize: 18,
+            //     fontWeight: FontWeight.w300,
+            //   ),
+            // ),
             const SizedBox(
               height: 4,
             ),

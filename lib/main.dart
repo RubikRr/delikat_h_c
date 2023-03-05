@@ -1,8 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_delikat_h_c/item_widget.dart';
 
 import 'product_class.dart';
 import 'data.dart';
+import 'package:http/http.dart' as http;
 
 void main() {
   runApp(const MyApp());
@@ -32,14 +35,36 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  final data = Product(
-    name: 'Bayam',
-    price: '2.000',
-    quantity: '1ikat',
-    image: 'assets/img1.png',
-    description:
-        'Secara umum sayuran dan buah-buahan merupakan sumber berbagai vitamin, mineral, dan serat pangan. Sebagian vitamin dan mineral yang terkandung dalam sayuran dan buah-buahan berperan untuk membantu proses-proses metabolisme di dalam tubuh, sedangkan antioksidan mampu menangkal senyawa-senyawa hasil oksidasi, radikal bebas, yang mampu menurunkan kondisi kesehatan tubuh',
-  );
+  final _products = <Product>[];
+
+  Future<List<Product>> featchProducts() async {
+    var url = Uri.parse('http://www.plus-pumba.ru/getproducts');
+    var response = await http.get(url);
+    print('Response status: ${response.statusCode}');
+    print('Response body: ${response.body}');
+
+    var products = <Product>[];
+
+    if (response.statusCode == 200) {
+      var productsJson = json.decode(response.body);
+      for (var productJson in productsJson) {
+        products.add(Product.fromJson(productJson));
+      }
+    }
+    print(products[0].name);
+    return products;
+  }
+
+  @override
+  void initState() {
+    featchProducts().then((value) {
+      setState(() {
+        _products.addAll(value);
+        print(_products[0].name);
+      });
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -108,9 +133,10 @@ class _MainPageState extends State<MainPage> {
             childAspectRatio: 0.6,
           ),
           itemBuilder: (context, index) {
-            return ItemWidget(product: allData[index]);
+            print("build");
+            return ItemWidget(product: _products[index]);
           },
-          itemCount: allData.length,
+          itemCount: _products.length,
         ),
       ),
     );

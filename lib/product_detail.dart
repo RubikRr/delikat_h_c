@@ -70,12 +70,16 @@ class _ProductDetailState extends State<ProductDetail> {
           ),
           Center(
             child: Hero(
-              tag: widget.product.image,
+              tag: widget.product.img,
               child: Container(
                 height: MediaQuery.of(context).size.height * 0.45,
-                decoration: BoxDecoration(
+                // decoration: BoxDecoration(
+                //     image: DecorationImage(
+                //         image: AssetImage(widget.product.img),
+                //         fit: BoxFit.contain)),
+                decoration: const BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage(widget.product.image),
+                        image: AssetImage('assets/img1.png'),
                         fit: BoxFit.contain)),
               ),
             ),
@@ -92,13 +96,13 @@ class _ProductDetailState extends State<ProductDetail> {
                       fontSize: 30,
                       fontWeight: FontWeight.w700),
                 ),
-                Text(
-                  ' /${widget.product.quantity}',
-                  style: const TextStyle(
-                      color: Colors.green,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w400),
-                ),
+                // Text(
+                //   ' /${widget.product.quantity}',
+                //   style: const TextStyle(
+                //       color: Colors.green,
+                //       fontSize: 20,
+                //       fontWeight: FontWeight.w400),
+                // ),
               ],
             ),
           ),

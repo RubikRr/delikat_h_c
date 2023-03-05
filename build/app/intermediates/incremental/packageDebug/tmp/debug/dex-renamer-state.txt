@@ -1,4 +1,4 @@
-#Tue Feb 28 22:59:37 MSK 2023
+#Sun Mar 05 21:44:39 MSK 2023
 base.0=K\:\\Erik\\FlutterProjects\\delikat_h_c\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

@@ -4,17 +4,17 @@ part 'product_class.g.dart';
 
 @JsonSerializable()
 class Product {
+  final int id;
   final String name;
-  final String price;
-  final String quantity;
-  final String image;
+  final String img;
   final String description;
+  final int price;
 
   Product({
+    required this.id,
     required this.name,
     required this.price,
-    required this.quantity,
-    required this.image,
+    required this.img,
     required this.description,
   });
 
