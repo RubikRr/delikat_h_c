@@ -1,8 +1,11 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_delikat_h_c/product_class.dart';
 import 'package:flutter_delikat_h_c/product_detail.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
-class ItemWidget extends StatelessWidget {
+class ItemWidget extends StatefulWidget {
   const ItemWidget({
     Key? key,
     required this.product,
@@ -10,12 +13,28 @@ class ItemWidget extends StatelessWidget {
   final Product product;
 
   @override
+  State<ItemWidget> createState() => _ItemWidgetState();
+}
+
+class _ItemWidgetState extends State<ItemWidget> {
+  late Product _product;
+
+  int _quantity = 1;
+
+  @override
+  void initState() {
+    _product = widget.product;
+    _quantity = 1;
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
         Navigator.push(context, MaterialPageRoute(builder: (context) {
           return ProductDetail(
-            product: product,
+            product: _product,
           );
         }));
       },
@@ -30,11 +49,11 @@ class ItemWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Hero(
-              tag: product.img,
+              tag: _product.img,
               child: SizedBox(
                 width: 150,
                 height: 100,
-                child: Image.asset('assets/${product.img}.png'),
+                child: Image.asset('assets/${_product.img}.png'),
                 //child: Image.asset('assets/img1.png'),
               ),
             ),
@@ -42,7 +61,7 @@ class ItemWidget extends StatelessWidget {
               height: 6,
             ),
             Text(
-              'Rub ${product.price}',
+              'Rub ${_product.price}',
               style: const TextStyle(
                 color: Colors.green,
                 fontSize: 20,
@@ -52,8 +71,9 @@ class ItemWidget extends StatelessWidget {
             const SizedBox(
               height: 2,
             ),
-            Text(
-              product.name,
+            AutoSizeText(
+              _product.name,
+              maxLines: 1,
               style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w600,
@@ -80,7 +100,7 @@ class ItemWidget extends StatelessWidget {
               height: 10,
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 Row(
                   children: const [
@@ -105,20 +125,33 @@ class ItemWidget extends StatelessWidget {
                   width: 8,
                 ),
                 Row(
-                  children: const [
-                    Icon(
-                      Icons.remove_circle_outline,
-                      size: 18,
-                      color: Colors.green,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    IconButton(
+                      onPressed: () {
+                        setState(() {
+                          _quantity = max(1, _quantity - 1);
+                        });
+                      },
+                      icon: const Icon(
+                        Icons.remove_circle_outline,
+                        color: Colors.green,
+                      ),
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 5),
-                      child: Text('0'),
+                      padding: const EdgeInsets.symmetric(horizontal: 5),
+                      child: Text('$_quantity'),
                     ),
-                    Icon(
-                      Icons.add_circle_outline,
-                      size: 18,
-                      color: Colors.green,
+                    IconButton(
+                      onPressed: () {
+                        setState(() {
+                          _quantity += 1;
+                        });
+                      },
+                      icon: const Icon(
+                        Icons.add_circle_outline,
+                        color: Colors.green,
+                      ),
                     ),
                   ],
                 ),

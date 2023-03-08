@@ -26,6 +26,12 @@
       "languageVersion": "2.18"
     },
     {
+      "name": "auto_size_text",
+      "rootUri": "file:///C:/Users/User/AppData/Local/Pub/Cache/hosted/pub.dev/auto_size_text-3.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "boolean_selector",
       "rootUri": "file:///C:/Users/User/AppData/Local/Pub/Cache/hosted/pub.dev/boolean_selector-2.1.1",
       "packageUri": "lib/",
@@ -410,7 +416,7 @@
       "languageVersion": "2.17"
     }
   ],
-  "generated": "2023-03-08T16:42:52.084919Z",
+  "generated": "2023-03-08T17:21:35.645539Z",
   "generator": "pub",
   "generatorVersion": "2.19.2"
 }
