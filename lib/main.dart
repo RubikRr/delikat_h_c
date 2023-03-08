@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_delikat_h_c/item_widget.dart';
 
+import 'basket_page.dart';
 import 'product_class.dart';
-import 'data.dart';
 import 'package:http/http.dart' as http;
 
 void main() {
@@ -18,11 +18,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Delikat Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MainPage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const MainPage(),
+        '/basket': (context) => BasketPage(
+              selektedProducts: productsInBasket,
+            ),
+      },
     );
   }
 }
@@ -34,11 +40,14 @@ class MainPage extends StatefulWidget {
   State<MainPage> createState() => _MainPageState();
 }
 
+List<Product> productsInBasket = <Product>[];
+
 class _MainPageState extends State<MainPage> {
   final _products = <Product>[];
 
   Future<List<Product>> featchProducts() async {
-    var url = Uri.parse('http://www.plus-pumba.ru/getproducts');
+    var url = Uri.http('www.plus-pumba.ru', 'products');
+    //var url = Uri.parse('http://www.plus-pumba.ru/products');
     var response = await http.get(url);
     print('Response status: ${response.statusCode}');
     print('Response body: ${response.body}');
@@ -51,7 +60,6 @@ class _MainPageState extends State<MainPage> {
         products.add(Product.fromJson(productJson));
       }
     }
-    print(products[0].name);
     return products;
   }
 
@@ -60,7 +68,6 @@ class _MainPageState extends State<MainPage> {
     featchProducts().then((value) {
       setState(() {
         _products.addAll(value);
-        print(_products[0].name);
       });
     });
     super.initState();
@@ -77,7 +84,7 @@ class _MainPageState extends State<MainPage> {
           color: Colors.black,
         ),
         title: const Text(
-          'Toko Buah & Sayur',
+          'Delikat',
           style: TextStyle(color: Colors.black),
         ),
         actions: [
@@ -133,7 +140,7 @@ class _MainPageState extends State<MainPage> {
             childAspectRatio: 0.6,
           ),
           itemBuilder: (context, index) {
-            print("build");
+            // print("build");
             return ItemWidget(product: _products[index]);
           },
           itemCount: _products.length,

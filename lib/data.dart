@@ -5,14 +5,14 @@ final List<Product> allData = [
     id: 1,
     name: 'Эрик Соси',
     price: 0,
-    img: 'assets/img1.png',
+    img: 'assets/image1.png',
     description: 'Любит тяночек',
   ),
   Product(
     id: 2,
     name: 'OLINA',
     price: 6,
-    img: 'assets/img2.png',
+    img: 'assets/image2.png',
     description:
         ',Хочет пони минижирафа самоеда корги много денег дом квартиру машину еще машину и еще дом и еще квартиру и поездить по миру но ничего не делатьа почему а потому что ВОВА КУПИ',
   ),

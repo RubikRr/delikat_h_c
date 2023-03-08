@@ -73,14 +73,14 @@ class _ProductDetailState extends State<ProductDetail> {
               tag: widget.product.img,
               child: Container(
                 height: MediaQuery.of(context).size.height * 0.45,
-                // decoration: BoxDecoration(
-                //     image: DecorationImage(
-                //         image: AssetImage(widget.product.img),
-                //         fit: BoxFit.contain)),
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage('assets/img1.png'),
+                        image: AssetImage('assets/${widget.product.img}.png'),
                         fit: BoxFit.contain)),
+                // decoration: const BoxDecoration(
+                //     image: DecorationImage(
+                //         image: AssetImage('assets/img1.png'),
+                //         fit: BoxFit.contain)),
               ),
             ),
           ),

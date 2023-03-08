@@ -33,8 +33,9 @@ class ItemWidget extends StatelessWidget {
               tag: product.img,
               child: SizedBox(
                 width: 150,
-                //child: Image.asset(product.img),
-                child: Image.asset('assets/img1.png'),
+                height: 100,
+                child: Image.asset('assets/${product.img}.png'),
+                //child: Image.asset('assets/img1.png'),
               ),
             ),
             const SizedBox(
@@ -62,7 +63,7 @@ class ItemWidget extends StatelessWidget {
               height: 2,
             ),
             // Text(
-            //   product.quantity,
+            //   '${product.quantity}',
             //   style: const TextStyle(
             //     fontSize: 18,
             //     fontWeight: FontWeight.w300,
@@ -92,7 +93,7 @@ class ItemWidget extends StatelessWidget {
                       width: 2,
                     ),
                     Text(
-                      "Beli",
+                      "Buy",
                       style: TextStyle(
                         color: Colors.green,
                         fontSize: 16,
